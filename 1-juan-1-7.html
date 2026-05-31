@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1 Juan 1:7 — Tarjeta</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    min-height: 100%;
+    background: #091830;
+    background-image: radial-gradient(ellipse at center, #143055 0%, #060d1a 100%);
+    font-family: Georgia, "Times New Roman", serif;
+    color: #d4e2f7;
+    padding: 20px;
+    -webkit-text-size-adjust: 100%;
+  }
+  .card {
+    position: relative;
+    max-width: 640px;
+    margin: 30px auto;
+    padding: 50px 40px 35px 40px;
+    background: #e8f0fc;
+    background-image: radial-gradient(ellipse at top left, #f7fbff 0%, #dce8f7 60%, #c5d8f0 100%);
+    color: #132b4d;
+    border: 1px solid #5a8fc7;
+    box-shadow:
+      0 0 0 1px rgba(0,0,0,0.15),
+      0 20px 50px rgba(0,15,40,0.65),
+      inset 0 0 40px rgba(180,210,250,0.4);
+  }
+  .card::before, .card::after {
+    content: "";
+    position: absolute;
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, #8ab4e0 0%, #5a8fc7 50%, #3a6fa0 100%);
+    box-shadow: -2px 2px 4px rgba(0,20,50,0.4);
+  }
+  .card::before { top:0; right:0; clip-path: polygon(100% 0, 0 0, 100% 100%); }
+  .card::after {
+    bottom:0; left:0;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+    background: linear-gradient(315deg, #8ab4e0 0%, #5a8fc7 50%, #3a6fa0 100%);
+    box-shadow: 2px -2px 4px rgba(0,20,50,0.4);
+  }
+  .fold-tl, .fold-br { position: absolute; width: 38px; height: 38px; }
+  .fold-tl {
+    top:0; left:0;
+    background: linear-gradient(45deg, #8ab4e0 0%, #5a8fc7 50%, #3a6fa0 100%);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    box-shadow: 2px 2px 4px rgba(0,20,50,0.4);
+  }
+  .fold-br {
+    bottom:0; right:0;
+    background: linear-gradient(225deg, #8ab4e0 0%, #5a8fc7 50%, #3a6fa0 100%);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    box-shadow: -2px -2px 4px rgba(0,20,50,0.4);
+  }
+  .logo { width: 70px; height: 70px; display: block; }
+
+  .divider { border: 0; border-top: 1.5px solid #3a6fa0; margin: 22px 0 6px 0; }
+  .divider + .divider { margin-top: 0; border-top: 1px solid #5a8fc7; }
+
+  .title {
+    text-align: center;
+    margin: 28px 0 10px 0;
+    font-family: "Trajan Pro", "Cinzel", Georgia, serif;
+    font-size: 44px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    color: #1e5ca0;
+    background: linear-gradient(180deg, #6ba3e8 0%, #2d7bc8 45%, #1a4a7a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow:
+      0 0 8px rgba(150,200,255,0.55),
+      0 0 18px rgba(120,180,255,0.35),
+      0 2px 0 rgba(0,0,0,0.15);
+    position: relative;
+  }
+  @supports not (-webkit-background-clip: text) {
+    .title { color: #2d7bc8; -webkit-text-fill-color: #2d7bc8; }
+  }
+  .sparkle {
+    position: absolute;
+    width: 10px; height: 10px;
+    background: radial-gradient(circle, rgba(200,230,255,0.95) 0%, rgba(140,190,255,0.6) 30%, rgba(100,160,255,0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: twinkle 2.6s infinite ease-in-out;
+  }
+  .sparkle.s1 { top: -6px; left: 18%; animation-delay: 0s; }
+  .sparkle.s2 { top: 50%; right: 12%; animation-delay: 0.8s; width:7px; height:7px; }
+  .sparkle.s3 { bottom: -4px; left: 55%; animation-delay: 1.4s; width:6px; height:6px; }
+  .sparkle.s4 { top: 20%; left: 8%; animation-delay: 2s; width:5px; height:5px; }
+  @keyframes twinkle {
+    0%,100% { transform: scale(0.6); opacity: 0.35; }
+    50% { transform: scale(1.4); opacity: 1; }
+  }
+
+  .verse {
+    margin: 26px 8px 10px 8px;
+    font-size: 22px;
+    line-height: 1.55;
+    text-align: center;
+    color: #132b4d;
+    font-style: italic;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+  }
+  .verse .ref {
+    display: block;
+    margin-top: 14px;
+    font-style: normal;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #3a6fa0;
+  }
+
+  /* Sección Otros pasajes */
+  .otros {
+    margin-top: 34px;
+    padding-top: 18px;
+    border-top: 1px dashed #5a8fc7;
+  }
+  .otros-title {
+    text-align: center;
+    font-family: "Cinzel", Georgia, serif;
+    font-size: 16px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #3a6fa0;
+    margin-bottom: 16px;
+  }
+  .otros-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+  }
+  .thumb {
+    display: block;
+    width: 180px;
+    text-decoration: none;
+    color: #132b4d;
+    background: rgba(220,235,255,0.5);
+    border: 1px solid #5a8fc7;
+    padding: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .thumb:hover { transform: translateY(-3px); box-shadow: 0 6px 14px rgba(0,20,50,0.35); }
+  .thumb img {
+    display: block;
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border: 1px solid #3a6fa0;
+  }
+  .thumb-title {
+    margin-top: 8px;
+    text-align: center;
+    font-family: "Cinzel", Georgia, serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #1e5ca0;
+    font-weight: bold;
+  }
+
+  .footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #3a6fa0;
+    font-family: Georgia, serif;
+  }
+
+  @media (max-width: 480px) {
+    body { padding: 10px; }
+    .card { padding: 38px 22px 25px 22px; margin: 12px auto; }
+    .title { font-size: 30px; letter-spacing: 2px; }
+    .verse { font-size: 17px; margin: 20px 2px; }
+    .logo { width: 56px; height: 56px; }
+    .thumb { width: 100%; max-width: 260px; }
+    .thumb img { height: 140px; }
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="fold-tl"></div>
+    <div class="fold-br"></div>
+
+    <img src="sx-logo.png" alt="SX" class="logo">
+
+    <hr class="divider">
+    <hr class="divider">
+
+    <h1 class="title">
+      1 Juan 1:7
+      <span class="sparkle s1"></span>
+      <span class="sparkle s2"></span>
+      <span class="sparkle s3"></span>
+      <span class="sparkle s4"></span>
+    </h1>
+
+    <hr class="divider">
+
+    <p class="verse">
+      &ldquo;Pero si andamos en luz, como él está en luz, tenemos comunión unos con otros, y la sangre de Jesucristo su Hijo nos limpia de todo pecado.&rdquo;
+      <span class="ref">— Antigua Versión 1909 —</span>
+    </p>
+
+    <section class="otros">
+      <div class="otros-title">Otros pasajes</div>
+      <div class="otros-grid">
+        <a class="thumb" href="salmos-119-105.html">
+          <img src="Imagenes/lampara-camino.jpeg" alt="Salmos 119:105">
+          <div class="thumb-title">Salmos 119:105</div>
+        </a>
+        <a class="thumb" href="romanos-8-1.html">
+          <img src="Imagenes/chico-pradera.jpeg" alt="Romanos 8:1">
+          <div class="thumb-title">Romanos 8:1</div>
+        </a>
+      </div>
+    </section>
+
+    <div class="footer">eltecnico25</div>
+  </div>
+</body>
+</html>
