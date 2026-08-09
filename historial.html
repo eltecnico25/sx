@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarjetas — Historial</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    min-height: 100%;
+    color: #3a2a14;
+    font-family: Georgia, "Times New Roman", serif;
+    padding: 20px;
+    -webkit-text-size-adjust: 100%;
+    background-color: #d9b97a;
+    background-image:
+      /* trigo grabado: espigas suaves repetidas */
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='220' viewBox='0 0 160 220'><g fill='none' stroke='%238a6326' stroke-width='1.1' stroke-linecap='round' opacity='0.35'><path d='M40 200 L40 60'/><path d='M40 70 q-10 -6 -16 -2 q4 8 16 6'/><path d='M40 70 q10 -6 16 -2 q-4 8 -16 6'/><path d='M40 90 q-10 -6 -16 -2 q4 8 16 6'/><path d='M40 90 q10 -6 16 -2 q-4 8 -16 6'/><path d='M40 110 q-10 -6 -16 -2 q4 8 16 6'/><path d='M40 110 q10 -6 16 -2 q-4 8 -16 6'/><path d='M40 130 q-10 -6 -16 -2 q4 8 16 6'/><path d='M40 130 q10 -6 16 -2 q-4 8 -16 6'/><path d='M40 150 q-10 -6 -16 -2 q4 8 16 6'/><path d='M40 150 q10 -6 16 -2 q-4 8 -16 6'/><path d='M120 210 L120 70'/><path d='M120 80 q-10 -6 -16 -2 q4 8 16 6'/><path d='M120 80 q10 -6 16 -2 q-4 8 -16 6'/><path d='M120 100 q-10 -6 -16 -2 q4 8 16 6'/><path d='M120 100 q10 -6 16 -2 q-4 8 -16 6'/><path d='M120 120 q-10 -6 -16 -2 q4 8 16 6'/><path d='M120 120 q10 -6 16 -2 q-4 8 -16 6'/><path d='M120 140 q-10 -6 -16 -2 q4 8 16 6'/><path d='M120 140 q10 -6 16 -2 q-4 8 -16 6'/><path d='M120 160 q-10 -6 -16 -2 q4 8 16 6'/><path d='M120 160 q10 -6 16 -2 q-4 8 -16 6'/></g></svg>"),
+      /* vetas madera */
+      repeating-linear-gradient(90deg, rgba(120,75,30,0.10) 0px, rgba(120,75,30,0.10) 2px, transparent 2px, transparent 9px),
+      repeating-linear-gradient(90deg, rgba(80,45,15,0.16) 0px, rgba(80,45,15,0.16) 1px, transparent 1px, transparent 24px),
+      linear-gradient(180deg, #e8c98a 0%, #d2a967 50%, #c79a55 100%);
+    background-size: 160px 220px, auto, auto, auto;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; }
+  .header-bar {
+    text-align: center;
+    padding: 18px 10px 8px 10px;
+  }
+  .logo-link { display: inline-block; line-height: 0; }
+  .logo-top { width: 64px; height: 64px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.35)); }
+  h1.page-title {
+    font-family: "Cinzel", "Trajan Pro", Georgia, serif;
+    font-size: 56px;
+    letter-spacing: 8px;
+    color: #3a2208;
+    text-transform: uppercase;
+    margin: 14px 0 6px 0;
+    text-shadow: 0 1px 0 #f5dca8, 0 2px 6px rgba(60,30,0,0.35);
+  }
+  .page-sub {
+    text-align: center;
+    font-style: italic;
+    color: #5a3a14;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
+  }
+
+  /* Cabecera con imagen de la última tarjeta */
+  .featured {
+    background: rgba(255, 245, 220, 0.55);
+    border: 1px solid #8a6326;
+    box-shadow: 0 10px 28px rgba(60,30,0,0.4), inset 0 0 30px rgba(255,230,180,0.4);
+    padding: 18px;
+    margin: 0 auto 34px auto;
+    max-width: 640px;
+  }
+  .featured .desc {
+    text-align: center;
+    font-style: italic;
+    color: #4a2c10;
+    font-size: 15px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .featured a.media { display: block; line-height: 0; }
+  .featured img {
+    display: block;
+    width: 100%;
+    max-width: 460px;     /* tamaño medio */
+    height: auto;
+    margin: 0 auto;
+    border: 2px solid #6b4314;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+  }
+  .featured .cite {
+    text-align: center;
+    margin-top: 12px;
+    font-family: "Cinzel", Georgia, serif;
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: #5a2f08;
+    font-weight: bold;
+  }
+
+  /* Miniaturas */
+  .section-title {
+    text-align: center;
+    font-family: "Cinzel", Georgia, serif;
+    font-size: 18px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #3a2208;
+    margin: 0 0 16px 0;
+  }
+  .thumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    padding-bottom: 30px;
+  }
+  .thumb {
+    display: block;
+    width: 200px;
+    text-decoration: none;
+    color: #3a2208;
+    background: rgba(255,245,220,0.7);
+    border: 1px solid #8a6326;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(60,30,0,0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .thumb:hover { transform: translateY(-4px); box-shadow: 0 10px 18px rgba(60,30,0,0.45); }
+  .thumb img {
+    display: block;
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border: 1px solid #6b4314;
+  }
+  .thumb-title {
+    margin-top: 8px;
+    text-align: center;
+    font-family: "Cinzel", Georgia, serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #4a2c10;
+  }
+  .footer {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #4a2c10;
+    padding: 10px 0 18px 0;
+  }
+  @media (max-width: 520px) {
+    h1.page-title { font-size: 36px; letter-spacing: 5px; }
+    .featured img { max-width: 100%; }
+    .thumb { width: calc(50% - 8px); }
+    .thumb img { height: 100px; }
+  }
+  @media (max-width: 340px) {
+    .thumb { width: 100%; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header-bar">
+      <a class="logo-link" href="inicio.html" title="Inicio">
+        <img src="sx-logo.png" alt="SX" class="logo-top">
+      </a>
+      <h1 class="page-title">Historial</h1>
+      <div class="page-sub">Pasajes bíblicos — Antigua Versión 1909</div>
+    </div>
+
+
+    <div class="thumbs">
+      <a class="thumb" href="colosenses-3-17.html">
+        <img src="Imagenes/conversa.jpeg" alt="Colosenses 3:17">
+        <div class="thumb-title">Colosenses 3:17</div>
+      </a>    
+      <a class="thumb" href="efesios-3-17-21.html">
+        <img src="Imagenes/joven-destellos.jpg" alt="Efesios 3:17-21">
+        <div class="thumb-title">Efesios 3:17-21</div>
+      </a>    
+      <a class="thumb" href="salmos-119-105.html">
+        <img src="Imagenes/lampara-camino.jpeg" alt="Salmos 119:105">
+        <div class="thumb-title">Salmos 119:105</div>
+      </a>
+      <a class="thumb" href="romanos-8-1.html">
+        <img src="Imagenes/chico-pradera.jpeg" alt="Romanos 8:1">
+        <div class="thumb-title">Romanos 8:1</div>
+      </a>
+    </div>
+
+    <div class="thumbs">
+      <a class="thumb" href="juan-3-16.html">
+        <img src="Imagenes/mundo-abrazado.jpeg" alt="Juan 3:16">
+        <div class="thumb-title">Juan 3:16</div>
+      </a>
+      <a class="thumb" href="1-juan-1-7.html">
+        <img src="Imagenes/personas-lampara.jpeg" alt="1 Juan 1:7">
+        <div class="thumb-title">1 Juan 1:7</div>
+      </a>
+    </div>
+
+    <div class="footer">eltecnico25</div>
+  </div>
+</body>
+</html>
