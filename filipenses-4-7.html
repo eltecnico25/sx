@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Filipenses 4:7 — Tarjeta</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    min-height: 100%;
+    background: #041826;
+    background-image:
+      /* burbujas suaves ascendentes */
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='220' viewBox='0 0 180 220'><g fill='none' stroke='%2389cfe0' stroke-width='1' stroke-linecap='round' opacity='0.22'><circle cx='30' cy='180' r='6'/><circle cx='120' cy='140' r='4'/><circle cx='70' cy='90' r='8'/><circle cx='150' cy='50' r='5'/><circle cx='45' cy='30' r='3'/><path d='M30 186 L30 200'/><path d='M120 146 L120 158'/><path d='M70 98 L70 116'/><path d='M150 55 L150 70'/><path d='M45 33 L45 42'/></g></svg>"),
+      /* ondas marinas sutiles */
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='80' viewBox='0 0 240 80'><path d='M0 40 Q30 25 60 40 T120 40 T180 40 T240 40' fill='none' stroke='%234a8fa8' stroke-width='1.2' opacity='0.18'/><path d='M0 60 Q30 45 60 60 T120 60 T180 60 T240 60' fill='none' stroke='%234a8fa8' stroke-width='1.2' opacity='0.12'/></svg>"),
+      radial-gradient(ellipse at center, #0c3d52 0%, #03121f 100%);
+    background-size: 180px 220px, 240px 80px, auto;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #d6f0f7;
+    padding: 20px;
+    -webkit-text-size-adjust: 100%;
+  }
+  .card {
+    position: relative;
+    max-width: 680px;
+    margin: 30px auto;
+    padding: 50px 40px 35px 40px;
+    background: #e4f6fa;
+    background-image: radial-gradient(ellipse at top left, #ffffff 0%, #dff4f9 55%, #b8e6f0 100%);
+    color: #0a3a4a;
+    border: 1px solid #4a9eb5;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.15), 0 20px 50px rgba(0,20,40,0.7), inset 0 0 40px rgba(170,230,245,0.45);
+  }
+  .card::before, .card::after {
+    content: ""; position: absolute; width: 38px; height: 38px;
+    background: linear-gradient(135deg, #7fcfdf 0%, #4a9eb5 50%, #2a7a94 100%);
+    box-shadow: -2px 2px 4px rgba(0,30,50,0.45);
+  }
+  .card::before { top:0; right:0; clip-path: polygon(100% 0, 0 0, 100% 100%); }
+  .card::after { bottom:0; left:0; clip-path: polygon(0 0, 0 100%, 100% 100%);
+    background: linear-gradient(315deg, #7fcfdf 0%, #4a9eb5 50%, #2a7a94 100%);
+    box-shadow: 2px -2px 4px rgba(0,30,50,0.45); }
+  .fold-tl, .fold-br { position: absolute; width: 38px; height: 38px; }
+  .fold-tl { top:0; left:0; background: linear-gradient(45deg, #7fcfdf 0%, #4a9eb5 50%, #2a7a94 100%);
+    clip-path: polygon(0 0, 100% 0, 0 100%); box-shadow: 2px 2px 4px rgba(0,30,50,0.45); }
+  .fold-br { bottom:0; right:0; background: linear-gradient(225deg, #7fcfdf 0%, #4a9eb5 50%, #2a7a94 100%);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%); box-shadow: -2px -2px 4px rgba(0,30,50,0.45); }
+  .logo-link { display: inline-block; line-height: 0; }
+  .logo { width: 70px; height: 70px; display: block; }
+  .divider { border: 0; border-top: 1.5px solid #2a7a94; margin: 22px 0 6px 0; }
+  .divider + .divider { margin-top: 0; border-top: 1px solid #4a9eb5; }
+  .title {
+    text-align: center; margin: 28px 0 10px 0;
+    font-family: "Trajan Pro", "Cinzel", Georgia, serif;
+    font-size: 40px; letter-spacing: 3px; font-weight: bold;
+    color: #1a7a8a;
+    background: linear-gradient(180deg, #5fdde6 0%, #2aa3b8 45%, #14687a 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 8px rgba(150,235,255,0.6), 0 0 18px rgba(120,215,245,0.4), 0 2px 0 rgba(0,0,0,0.15);
+    position: relative;
+  }
+  @supports not (-webkit-background-clip: text) {
+    .title { color: #2aa3b8; -webkit-text-fill-color: #2aa3b8; }
+  }
+  .sparkle { position: absolute; width: 10px; height: 10px;
+    background: radial-gradient(circle, rgba(210,250,255,0.95) 0%, rgba(140,225,240,0.65) 30%, rgba(100,200,220,0) 70%);
+    border-radius: 50%; pointer-events: none; animation: twinkle 2.6s infinite ease-in-out; }
+  .sparkle.s1 { top: -6px; left: 18%; }
+  .sparkle.s2 { top: 50%; right: 12%; animation-delay: 0.8s; width:7px; height:7px; }
+  .sparkle.s3 { bottom: -4px; left: 55%; animation-delay: 1.4s; width:6px; height:6px; }
+  .sparkle.s4 { top: 20%; left: 8%; animation-delay: 2s; width:5px; height:5px; }
+  @keyframes twinkle { 0%,100% { transform: scale(0.6); opacity: 0.35; } 50% { transform: scale(1.4); opacity: 1; } }
+  .verse {
+    margin: 26px 8px 10px 8px; font-size: 20px; line-height: 1.6;
+    text-align: justify; color: #0a3a4a; font-style: italic;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+  }
+  .verse .ref { display: block; margin-top: 14px; font-style: normal; font-size: 16px;
+    letter-spacing: 2px; color: #2a7a94; text-align: center; }
+  .otros { margin-top: 34px; padding-top: 18px; border-top: 1px dashed #4a9eb5; }
+  .otros-title { text-align: center; font-family: "Cinzel", Georgia, serif;
+    font-size: 16px; letter-spacing: 3px; text-transform: uppercase; color: #2a7a94; margin-bottom: 16px; }
+  .otros-grid { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+  .thumb { display: block; width: 180px; text-decoration: none; color: #0a3a4a;
+    background: rgba(210,243,250,0.55); border: 1px solid #4a9eb5; padding: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .thumb:hover { transform: translateY(-3px); box-shadow: 0 6px 14px rgba(0,30,50,0.4); }
+  .thumb img { display: block; width: 100%; height: 110px; object-fit: cover; border: 1px solid #2a7a94; }
+  .thumb-title { margin-top: 8px; text-align: center; font-family: "Cinzel", Georgia, serif;
+    font-size: 14px; letter-spacing: 2px; color: #1a7a8a; font-weight: bold; }
+  .footer { margin-top: 30px; text-align: center; font-size: 11px; letter-spacing: 1px;
+    color: #2a7a94; font-family: Georgia, serif; }
+  @media (max-width: 480px) {
+    body { padding: 10px; }
+    .card { padding: 38px 22px 25px 22px; margin: 12px auto; }
+    .title { font-size: 26px; letter-spacing: 2px; }
+    .verse { font-size: 16px; margin: 20px 2px; }
+    .logo { width: 56px; height: 56px; }
+    .thumb { width: 100%; max-width: 260px; }
+    .thumb img { height: 140px; }
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="fold-tl"></div>
+    <div class="fold-br"></div>
+
+    <a class="logo-link" href="inicio.html" title="Ir a Inicio">
+      <img src="sx-logo.png" alt="SX — Inicio" class="logo">
+    </a>
+
+    <hr class="divider">
+    <hr class="divider">
+
+    <h1 class="title">
+      Filipenses 4:7
+      <span class="sparkle s1"></span>
+      <span class="sparkle s2"></span>
+      <span class="sparkle s3"></span>
+      <span class="sparkle s4"></span>
+    </h1>
+
+    <hr class="divider">
+
+    <p class="verse">
+      &ldquo;Y la paz de Dios, que sobrepasa todo entendimiento, guardará vuestros corazones y vuestros pensamientos en Cristo Jesús.&rdquo;
+      <span class="ref">— Antigua Versión 1909 —</span>
+    </p>
+
+    <section class="otros">
+      <div class="otros-title">Otros pasajes</div>
+      <div class="otros-grid">
+        <a class="thumb" href="juan-14-6.html">
+         <img src="Imagenes/El Camino.jpeg" alt="Juan 14:6">
+         <div class="thumb-title">El Camino al Padre</div>
+       </a>
+       <a class="thumb" href="juan-14-27.html">
+         <img src="Imagenes/Planeta-Luz.jpeg" alt="Juan 14:27">
+         <div class="thumb-title">La Paz, un Don de Jesús</div>
+       </a>
+      </div>
+    </section>
+
+    <div class="footer">eltecnico25 - tecnicogonzalezj@protonmail.com</div>
+  </div>
+</body>
+</html>
