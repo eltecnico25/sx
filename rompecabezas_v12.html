@@ -1,18 +1,18 @@
 <!doctype html>
-<!-- ROMPECABEZAS · eltecnico25
-     Uso: deja este archivo junto a las carpetas "retos" y "fondos".
-     Para agregar retos: copia la imagen en "retos" y añade una línea en retos/recompensas.txt -->
+<!-- ROMPECABEZAS
+     Uso: deja este archivo junto a las carpetas "Imagenes" y "fondos".
+     Para agregar retos: copia la imagen en "Imagenes" y añade una línea en Imagenes/recompensas.txt -->
 <html lang="es">
   <head>
     <!-- Datos básicos de la página y tipografías -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Rompecabezas · eltecnico25</title>
+    <title>Rompecabezas</title>
     <meta
       name="description"
       content="Rompecabezas con tres dificultades, retos y recompensas bíblicas."
     />
-    <meta property="og:title" content="Rompecabezas · eltecnico25" />
+    <meta property="og:title" content="Rompecabezas" />
     <meta
       property="og:description"
       content="Completa cada imagen y descubre su recompensa."
@@ -66,6 +66,14 @@
       * {
         box-sizing: border-box;
       }
+      
+  .header-bar {
+    text-align: center;
+    padding: 18px 10px 1px 10px;
+  }
+  .logo-link { display: inline-block; line-height: 0; }
+  .logo-top { width: 64px; height: 64px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.35)); }
+      
       body {
         margin: 0;
         font-family: var(--font-body);
@@ -1551,10 +1559,14 @@
       <div class="scene-tint"></div>
 
       <!-- Encabezado con la marca y el botón Inicio -->
+    <div class="header-bar">
+      <a class="logo-link" href="inicio.html" title="Inicio">
+        <img src="sx-logo.png" alt="SX" class="logo-top">
+      </a>
+    </div>
+      
       <header class="app-header">
         <a class="brand" href="#" id="marca">
-          <span class="brand-mark" data-icon="puzzle"></span>
-          <span>Un mundo en piezas</span>
         </a>
         <button id="btnInicio" class="game-button game-button-quiet hidden">
           <span data-icon="home"></span> Inicio
@@ -1567,7 +1579,7 @@
       <!-- Firma al pie de la página -->
       <footer class="app-footer">
         <span class="footer-line"></span>
-        <span>eltecnico<span class="signature-number">25</span></span>
+        <span>eltecnico<span class="signature-number">25<span> - tecnicogonzalezj@protonmail.com </span></span></span>
         <span class="footer-line"></span>
       </footer>
 
@@ -1591,7 +1603,7 @@
 
       // Niveles de dificultad: piezas = columnas x filas
       const NIVELES = [
-        { id: "easy", nombre: "Fácil", piezas: 8, columnas: 4, filas: 2, puntos: 9 },
+        { id: "easy", nombre: "Fácil", piezas: 8, columnas: 4, filas: 2, puntos: 1 },
         {
           id: "medium",
           nombre: "Intermedio",
